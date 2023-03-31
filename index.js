@@ -96,7 +96,7 @@ console.log(userDetails)
 
 
 
-app.listen(8080,async()=>{
+app.listen(process.env.port,async()=>{
     try{
    await connection
    console.log("connected to db")
@@ -105,7 +105,7 @@ app.listen(8080,async()=>{
     console.log("something went wrong")
     console.log(err)
     }
-    console.log("listening at port 8080")
+    console.log(`listening at port ${process.env.port}`)
 })
 
 
