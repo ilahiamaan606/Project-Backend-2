@@ -49,9 +49,9 @@ app.use("/users", userRouter)
 
 app.use("/product",productrouter)
 
-// app.get("/product",(req,res)=>{
-//     res.send("products...")
-// })
+app.get("/",(req,res)=>{
+    res.send("Home Page Backend")
+})
 
 
 
