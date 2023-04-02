@@ -94,9 +94,9 @@ app.get("/auth/github",async(req,res)=>{
 console.log(userDetails)
 
 
-  res.send("xyz")
+//   res.send("xyz")
 
-// res.sendFile(__dirname + "../index.html")
+res.sendFile(__dirname + "../index.html")
 
 
 
@@ -105,7 +105,7 @@ console.log(userDetails)
 
 
 
-app.listen(process.env.port,async()=>{
+app.listen(8080,async()=>{
     try{
    await connection
    console.log("connected to db")
@@ -114,7 +114,7 @@ app.listen(process.env.port,async()=>{
     console.log("something went wrong")
     console.log(err)
     }
-    console.log(`listening at port ${process.env.port}`)
+    console.log("listening at port 8080")
 })
 
 
