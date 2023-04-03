@@ -51,7 +51,7 @@ try {
                 const refreshToken=jwt.sign( {email,userID:user[0]._id},
                     "refreshtokensecret",
                     {expiresIn:"10m"});
-                res.send({ msg: "Login Succsess", "token": token ,refreshToken});
+                res.send({ msg: "Login Succsess", "token": token ,refreshToken,"name":user[0].name});
             }
             else {
                 res.send({ msg: "user registration failed" });
@@ -100,11 +100,11 @@ userRouter.get("/logout",async(req,res)=>{
   
 
     
-    await redisClient.set(req.body.userID,token,{EX:3600});
+    await redisClient.set(`${req.body.userID}`,`${token}`,{EX:3600});
 
     // console.log("token",req.body.email)
 
-    res.send("logout successful")
+    res.send({msg:"logout successful"})
     }
     catch(err){
     console.log(err)
